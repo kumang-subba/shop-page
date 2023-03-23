@@ -1,31 +1,11 @@
-.App {
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +15,176 @@
   to {
     transform: rotate(360deg);
   }
+}
+.nav-bar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background: linear-gradient(0.25turn, #ac7e21, #ebf8e1, #3796cd);
+  padding: 5px;
+}
+.nav-content {
+  display: flex;
+}
+.navhead {
+  margin: 0;
+  position: absolute;
+  left: 2.5rem;
+  top: 0;
+}
+.home {
+  position: relative;
+  background-image: url("../public/images/home.avif");
+  background-color: black;
+  width: 100%;
+  height: 92.5vh;
+}
+.shop {
+  position: relative;
+}
+.cars {
+  position: absolute;
+  top: 50px;
+  left: 500px;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px 50px;
+}
+.home-car-img {
+  z-index: 1;
+  width: 200px;
+  height: auto;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.home-car-img:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.car1 {
+  width: 400px;
+  height: auto;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  grid-column: 1/3;
+  z-index: 5;
+  padding-left: 2rem;
+}
+.car1:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+.home-text {
+  position: fixed;
+  top: 0;
+  left: 620px;
+  z-index: 5;
+}
+.shop-text {
+  position: fixed;
+  top: 0;
+  left: 730px;
+}
+.pageheadings {
+  font-family: "Fasthand", cursive;
+  font-size: 2rem;
+  color: #574600;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
+.shop {
+  margin: auto;
+  height: 92.5vh;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(
+    315deg,
+    rgba(101, 0, 94, 1) 3%,
+    rgba(60, 132, 206, 1) 38%,
+    rgba(48, 238, 226, 1) 68%,
+    rgba(255, 25, 25, 1) 98%
+  );
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgb(255 255 255 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+
+  75% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(1);
+  }
+}
+.products-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+}
+.checkout-btn {
+  position: absolute;
+  right: 20px;
+  top: 65px;
+  z-index: 1000;
 }
