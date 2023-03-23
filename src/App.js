@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
@@ -23,10 +23,15 @@ const App = () => {
     }
     return arr;
   });
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    return JSON.parse(sessionStorage.getItem("cart")) || [];
+  });
   const [snackOpen, setSnackOpen] = useState(false);
   const [open, setOpen] = React.useState(false);
 
+  useEffect(() => {
+    sessionStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
   const handleClick = (product, input) => {
     if (input === "+") {
       const addedProducts = products.map((i) => {
