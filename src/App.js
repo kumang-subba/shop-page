@@ -74,6 +74,7 @@ const App = () => {
     }
     setSnackOpen(false);
   };
+
   function findDupUpdateVal(arr) {
     return arr.reduce((acc, currentVal, index, self) => {
       if (index === self.findIndex((e) => e.id === currentVal.id)) {
@@ -105,6 +106,9 @@ const App = () => {
   const handleModalOpen = () => {
     setOpen(true);
   };
+  const clearCart = () => {
+    setCartItems([]);
+  };
 
   return (
     <div className="app">
@@ -112,6 +116,7 @@ const App = () => {
         open={open}
         handleModalClose={handleModalClose}
         cartItems={cartItems}
+        clearCart={clearCart}
       />
       <BrowserRouter>
         <Nav cartItems={cartItems} handleModalOpen={handleModalOpen} />

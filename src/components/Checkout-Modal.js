@@ -20,7 +20,12 @@ const style = {
   flexDirection: "column",
 };
 
-export default function Checkoutmodal({ open, handleModalClose, cartItems }) {
+export default function Checkoutmodal({
+  open,
+  handleModalClose,
+  cartItems,
+  clearCart,
+}) {
   return (
     <Modal
       open={open}
@@ -34,7 +39,17 @@ export default function Checkoutmodal({ open, handleModalClose, cartItems }) {
             Checkout
           </Typography>
           <ModalTable cartItems={cartItems} />
-          <Button sx={{ alignSelf: "flex-end" }}>Procceed to Checkout</Button>
+          <div style={{ alignSelf: "flex-end", margin: "5px" }}>
+            <Button
+              variant="outlined"
+              color="error"
+              sx={{ marginRight: "5px" }}
+              onClick={clearCart}
+            >
+              Clear Cart
+            </Button>
+            <Button variant="contained">Procceed to Checkout</Button>
+          </div>
         </Box>
       </div>
     </Modal>
