@@ -183,7 +183,7 @@
   margin-top: 150px;
 }
 .checkout-btn {
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 65px;
   z-index: 1000;
