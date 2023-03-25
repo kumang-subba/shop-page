@@ -34,24 +34,26 @@ const App = () => {
   }, [cartItems]);
   const handleClick = (product, input) => {
     if (input === "+") {
-      const addedProducts = products.map((i) => {
-        if (i === product) {
-          return { ...i, value: product.value + 1 };
-        }
-        return i;
-      });
-      setProducts(addedProducts);
+      setProducts((prev) =>
+        prev.map((i) => {
+          if (i === product) {
+            return { ...i, value: product.value + 1 };
+          }
+          return i;
+        })
+      );
     } else if (input === "-") {
       if (product.value <= 0) {
         return;
       }
-      const reducedProducts = products.map((i) => {
-        if (i === product) {
-          return { ...i, value: product.value - 1 };
-        }
-        return i;
-      });
-      setProducts(reducedProducts);
+      setProducts((prev) =>
+        prev.map((i) => {
+          if (i === product) {
+            return { ...i, value: product.value - 1 };
+          }
+          return i;
+        })
+      );
     } else if (input === "cart") {
       if (product.value > 0) {
         const newCart = [...cartItems, product];
